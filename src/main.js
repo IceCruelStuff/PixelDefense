@@ -11,28 +11,29 @@ let mainWindow;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  if (process.platform != 'darwin')
-    app.quit();
+    if (process.platform != 'darwin') {
+        app.quit();
+    }
 });
 
 function createWindow() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 960, height: 660 });
+    // Create the browser window.
+    mainWindow = new BrowserWindow({ width: 960, height: 660 });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
+    // and load the index.html of the app.
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'index.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
+    // Emitted when the window is closed.
+    mainWindow.on('closed', () => {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        mainWindow = null;
+    });
 }
 
 // This method will be called when atom-shell has done everything
@@ -40,9 +41,9 @@ function createWindow() {
 app.on('ready', createWindow);
 
 app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow();
-  }
+    // On OS X it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (mainWindow === null) {
+        createWindow();
+    }
 });
