@@ -24,6 +24,6 @@ game.functions = {
             me.game.world.removeChild(menus[i]);
         }        
 
-	}
+    }
 
 }
